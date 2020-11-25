@@ -1,0 +1,11 @@
+# angular
+code_coverage/
+dist/
+test_coverage/
+
+# nodejs
+node_modules/
+
+# general
+.DS_Store
+.vscode/
