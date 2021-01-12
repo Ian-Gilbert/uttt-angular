@@ -1,0 +1,7 @@
+<div class="gb-container" *ngIf="globalBoard">
+  <div *ngFor="let lb of globalBoard.localBoards; let i = index">
+    <app-local-board [localBoard]=lb [currentPlayer]="currentPlayer" [gbMark]="globalBoard.board[i]"
+      (makeMoveEvent)="makeMove($event, i)">
+    </app-local-board>
+  </div>
+</div>

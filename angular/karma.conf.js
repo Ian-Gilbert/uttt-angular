@@ -2,6 +2,8 @@
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
 module.exports = function (config) {
+  process.env.CHROMIUM_BIN = require('puppeteer').executablePath();
+
   config.set({
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
@@ -18,18 +20,21 @@ module.exports = function (config) {
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/angular'),
       subdir: '.',
-      reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
+      reporters: [{
+          type: 'html'
+        },
+        {
+          type: 'text-summary'
+        }
       ]
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
+    autoWatch: false,
+    browsers: ['ChromiumHeadless'],
+    singleRun: true,
     restartOnFileChange: true
   });
 };

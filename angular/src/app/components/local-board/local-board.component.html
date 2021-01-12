@@ -1,0 +1,10 @@
+<div class="container" *ngIf="localBoard"
+  [ngClass]="{'focus': localBoard.focus, 'xWin': gbMark === markType.PLAYER1, 'oWin': gbMark === markType.PLAYER2, 'draw': gbMark === markType.DRAW}">
+  <div *ngFor="let mark of localBoard.board; let i = index" id="{{ 'block_' + i }}" class="block">
+    <div class="mark"
+      [ngClass]="{'xSelectable': localBoard.focus && mark === markType.EMPTY && currentPlayer === markType.PLAYER1,
+    'oSelectable': localBoard.focus && mark === markType.EMPTY && currentPlayer === markType.PLAYER2, 'xMark': mark === markType.PLAYER1, 'oMark': mark === markType.PLAYER2}"
+      (click)="makeMove(i)">
+    </div>
+  </div>
+</div>

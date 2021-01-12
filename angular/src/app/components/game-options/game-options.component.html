@@ -1,0 +1,105 @@
+<div class="tabs is-centered">
+  <ul>
+    <li *ngFor="let tab of tabs" [ngClass]="{'is-active': selectedTab == tab}" (click)="switchTab(tab)">
+      <a>{{tab}}</a>
+    </li>
+  </ul>
+</div>
+
+<ng-container [ngSwitch]="selectedTab">
+
+  <!-- Local Game Options -->
+  <ng-container *ngSwitchCase="tabs[0]">
+    <div class="content">
+      <div class="field">
+        <label class="label">Enter a local game ID</label>
+        <div class="control">
+          <input class="input is-rounded" type="text" size="16" placeholder="Game ID" [(ngModel)]="gameId">
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <button class="button is-link is-rounded is-fullwidth" (click)="continueLocalGame()">
+            Continue Game
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <h6 class="subtitle is-6 has-text-centered">or</h6>
+    </div>
+
+    <div class="content">
+      <div class="field">
+        <label class="label is-bold">Opponent</label>
+        <div class="select is-rounded">
+          <div class="control">
+            <select [(ngModel)]="selectedOpponent">
+              <option *ngFor="let option of opponents" [value]="option">{{option}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="field" *ngIf="selectedOpponent==opponents[1]">
+        <label class="label is-bold">Who goes first</label>
+        <div class="select is-rounded">
+          <div class="control">
+            <select [(ngModel)]="selectedFirstTurn">
+              <option *ngFor="let option of firstTurn" [value]="option">{{option}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="field" *ngIf="selectedOpponent==opponents[1]">
+        <label class="label is-bold">Difficulty</label>
+        <div class="select is-rounded">
+          <div class="control">
+            <select [(ngModel)]="selectedDifficulty">
+              <option *ngFor="let option of difficulties" [value]="option">{{option}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <button class="button is-success is-rounded is-fullwidth" (click)="newLocalGame()">
+            New Game
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Online Game Options -->
+  <ng-container *ngSwitchCase="tabs[1]">
+    <div class="content">
+      <div class="field">
+        <label class="label">Enter an online game ID</label>
+        <div class="control">
+          <input class="input is-rounded" placeholder="Game ID" [(ngModel)]="gameId">
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <button class="button is-link is-rounded is-fullwidth" (click)="continueOnlineGame()">
+            Continue Game</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <h6 class="subtitle is-6 has-text-centered">or</h6>
+    </div>
+
+    <div class="content">
+      <div class="field">
+        <div class="control">
+          <button class="button is-success is-rounded is-fullwidth" (click)="newOnlineGame()">
+            New Game
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
