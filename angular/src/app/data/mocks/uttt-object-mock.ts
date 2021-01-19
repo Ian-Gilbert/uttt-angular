@@ -1,9 +1,9 @@
-import { GameObject } from '../game-object.model';
+import { UtttObject } from '../uttt-object.model';
 import { GameStatus } from '../game-status.enum';
 import { MarkType } from '../mark-type.enum';
 import { globalBoardMock } from './global-board-mock';
 
-export const gameObjectMock: GameObject = {
+export const utttObjectMock: UtttObject = {
   id: '0',
   status: GameStatus.IN_PROGRESS,
   currentPlayer: MarkType.PLAYER1,

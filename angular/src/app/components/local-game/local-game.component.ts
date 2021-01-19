@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
-import { GameObject } from 'src/app/data/game-object.model';
+import { UtttObject } from 'src/app/data/uttt-object.model';
 import { Move } from 'src/app/data/move.model';
 import { UtttService } from 'src/app/services/uttt/uttt.service';
 
@@ -11,7 +11,7 @@ import { UtttService } from 'src/app/services/uttt/uttt.service';
   styleUrls: ['./local-game.component.css'],
 })
 export class LocalGameComponent implements OnInit {
-  public gameObject: GameObject | null = null;
+  public gameObject: UtttObject | null = null;
 
   constructor(
     private readonly service: UtttService,

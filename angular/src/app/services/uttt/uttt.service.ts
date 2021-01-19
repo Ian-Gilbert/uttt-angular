@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ConfigService } from '../config/config.service';
 import { concatMap, map } from 'rxjs/operators';
-import { GameObject } from 'src/app/data/game-object.model';
+import { UtttObject } from 'src/app/data/uttt-object.model';
 import { Move } from 'src/app/data/move.model';
 
 @Injectable({
@@ -17,20 +17,20 @@ export class UtttService {
     this.utttUrl$ = config$.pipe(map((cfg) => `${cfg.api.uttt.base}${cfg.api.uttt.uri.uttt}`));
   }
 
-  get(id: string): Observable<GameObject> {
+  get(id: string): Observable<UtttObject> {
     return this.utttUrl$.pipe(
       map((url) => url.concat(`/${id}`)),
-      concatMap((url) => this.http.get<GameObject>(url))
+      concatMap((url) => this.http.get<UtttObject>(url))
     );
-    // return of(gameObjectMock);
+    // return of(utttObjectMock);
   }
 
-  post(): Observable<GameObject> {
-    return this.utttUrl$.pipe(concatMap((url) => this.http.post<GameObject>(url, null)));
+  post(): Observable<UtttObject> {
+    return this.utttUrl$.pipe(concatMap((url) => this.http.post<UtttObject>(url, null)));
     // return of('id');
   }
 
-  put(id: string, move: Move): Observable<GameObject> {
+  put(id: string, move: Move): Observable<UtttObject> {
     // const params = new HttpParams()
     //   .set('player', player.toString())
     //   .set('lbIndex', lbIndex.toString())
@@ -38,9 +38,9 @@ export class UtttService {
 
     return this.utttUrl$.pipe(
       map((url) => url.concat(`/${id}`)),
-      concatMap((url) => this.http.put<GameObject>(url, move))
+      concatMap((url) => this.http.put<UtttObject>(url, move))
     );
-    // return of(gameObjectMock);
+    // return of(utttObjectMock);
   }
 
   delete(id: string): Observable<void> {
