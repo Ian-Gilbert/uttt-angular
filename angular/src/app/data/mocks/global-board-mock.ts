@@ -1,6 +1,6 @@
-import { GlobalBoard } from "../global-board.model";
-import { localBoardMock } from "./local-board-mock";
-import { ticTacToeBoardMock } from "./tic-tac-toe-board-mock";
+import { GlobalBoard } from '../global-board.model';
+import { localBoardMock } from './local-board-mock';
+import { ticTacToeBoardMock } from './tic-tac-toe-board-mock';
 
 export const globalBoardMock: GlobalBoard = {
   board: ticTacToeBoardMock.board,
@@ -13,6 +13,6 @@ export const globalBoardMock: GlobalBoard = {
     localBoardMock,
     localBoardMock,
     localBoardMock,
-    localBoardMock
-  ]
+    localBoardMock,
+  ],
 };

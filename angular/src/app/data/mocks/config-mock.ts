@@ -1,43 +1,32 @@
-import { asyncScheduler, Observable, scheduled } from "rxjs";
-import { Config } from "../config.model";
+import { asyncScheduler, Observable, scheduled } from 'rxjs';
+import { Config } from '../config.model';
 
 export const configMock: Config = {
   api: {
     uttt: {
-      base: "test",
+      base: 'test',
       uri: {
-        uttt: ""
-      }
-    }
+        uttt: '',
+      },
+    },
   },
   gameOptions: {
     localGame: {
-      name: "Local Game",
+      name: 'Local Game',
       options: {
-        opponents: [
-          "Play against a friend",
-          "Play against a computer"
-        ],
-        firstTurn: [
-          "Player",
-          "Computer"
-        ],
-        difficulties: [
-          "Beginner",
-          "MCTS Easy",
-          "MCTS Medium",
-          "MCTS Hard"
-        ]
-      }
+        opponents: ['Play against a friend', 'Play against a computer'],
+        firstTurn: ['Player', 'Computer'],
+        difficulties: ['Beginner', 'MCTS Easy', 'MCTS Medium', 'MCTS Hard'],
+      },
     },
     onlineGame: {
-      name: "Online Game"
-    }
-  }
-}
+      name: 'Online Game',
+    },
+  },
+};
 
 export const configServiceStub = {
-    get(): Observable<Config> {
-        return scheduled([configMock], asyncScheduler);
-    }
-}
+  get(): Observable<Config> {
+    return scheduled([configMock], asyncScheduler);
+  },
+};

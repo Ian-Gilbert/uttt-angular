@@ -26,15 +26,9 @@ import { GameOptionsComponent } from './components/game-options/game-options.com
     LocalGameComponent,
     GameOptionsComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FontAwesomeModule
-  ],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, FontAwesomeModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {

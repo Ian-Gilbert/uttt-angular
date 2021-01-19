@@ -1,9 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { HttpClientTestingModule, HttpTestingController, TestRequest } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+  TestRequest,
+} from '@angular/common/http/testing';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { configServiceStub } from 'src/app/data/mocks/config-mock';
 import { gameObjectMock } from 'src/app/data/mocks/game-object-mock';
-import { moveObjectMock } from 'src/app/data/mocks/move-object-mock';
+import { moveObjectMock } from 'src/app/data/mocks/move-mock';
 import { ConfigService } from '../config/config.service';
 
 import { UtttService } from './uttt.service';
@@ -46,7 +50,7 @@ describe('UtttService', () => {
 
     service.post().subscribe((res) => {
       expect(res).toBe(gameObjectMock);
-    })
+    });
 
     tick();
 
@@ -59,7 +63,7 @@ describe('UtttService', () => {
 
     service.put('0', moveObjectMock).subscribe((res) => {
       expect(res).toBe(gameObjectMock);
-    })
+    });
 
     tick();
 
@@ -76,5 +80,5 @@ describe('UtttService', () => {
 
     req = httpTestingController.expectOne('test/0');
     req.flush(null);
-  }))
+  }));
 });

@@ -6,24 +6,28 @@ import { UtttService } from 'src/app/services/uttt/uttt.service';
 @Component({
   selector: 'app-game-options',
   templateUrl: './game-options.component.html',
-  styleUrls: ['./game-options.component.css']
+  styleUrls: ['./game-options.component.css'],
 })
 export class GameOptionsComponent implements OnInit {
-  gameId: string = '';
+  gameId = '';
 
   tabs: string[] = [];
-  selectedTab: string = "";
+  selectedTab = '';
 
   opponents: string[] = [];
-  selectedOpponent: string = "";
+  selectedOpponent = '';
 
   firstTurn: string[] = [];
-  selectedFirstTurn: string = "";
+  selectedFirstTurn = '';
 
   difficulties: string[] = [];
-  selectedDifficulty: string = "";
+  selectedDifficulty = '';
 
-  constructor(private readonly service: UtttService, private readonly router: Router, private readonly config: ConfigService) { }
+  constructor(
+    private readonly service: UtttService,
+    private readonly router: Router,
+    private readonly config: ConfigService
+  ) {}
 
   ngOnInit(): void {
     this.config.get().subscribe((cfg) => {
@@ -42,21 +46,19 @@ export class GameOptionsComponent implements OnInit {
     });
   }
 
-  switchTab(tabName: string) {
+  switchTab(tabName: string): void {
     this.selectedTab = tabName;
   }
 
-  continueLocalGame() {
+  continueLocalGame(): void {
     this.router.navigate(['local-game', this.gameId]);
   }
 
-  newLocalGame() {
-    this.service.post().subscribe(
-      (game) => this.router.navigate(['local-game', game.id])
-    );
+  newLocalGame(): void {
+    this.service.post().subscribe((game) => this.router.navigate(['local-game', game.id]));
   }
 
-  continueOnlineGame() { }
+  continueOnlineGame(): void {}
 
-  newOnlineGame() { }
+  newOnlineGame(): void {}
 }

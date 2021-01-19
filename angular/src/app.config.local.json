@@ -11,20 +11,9 @@
     "localGame": {
       "name": "Local Game",
       "options": {
-        "opponents": [
-          "Play with a friend",
-          "Play against a computer"
-        ],
-        "firstTurn": [
-          "Player",
-          "Computer"
-        ],
-        "difficulties": [
-          "Beginner",
-          "MCTS Easy",
-          "MCTS Medium",
-          "MCTS Hard"
-        ]
+        "opponents": ["Play with a friend", "Play against a computer"],
+        "firstTurn": ["Player", "Computer"],
+        "difficulties": ["Beginner", "MCTS Easy", "MCTS Medium", "MCTS Hard"]
       }
     },
     "onlineGame": {

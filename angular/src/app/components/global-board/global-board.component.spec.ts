@@ -8,9 +8,8 @@ describe('GlobalBoardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GlobalBoardComponent ]
-    })
-    .compileComponents();
+      declarations: [GlobalBoardComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

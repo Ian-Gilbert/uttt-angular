@@ -1,3 +1,6 @@
 export enum MarkType {
-    EMPTY, PLAYER1, PLAYER2, DRAW
+  EMPTY,
+  PLAYER1,
+  PLAYER2,
+  DRAW,
 }

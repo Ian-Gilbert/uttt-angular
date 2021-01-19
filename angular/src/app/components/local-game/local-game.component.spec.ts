@@ -8,9 +8,8 @@ describe('LocalGameComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LocalGameComponent ]
-    })
-    .compileComponents();
+      declarations: [LocalGameComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

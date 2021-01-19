@@ -2,6 +2,8 @@
   "name": "angular",
   "version": "0.0.0",
   "scripts": {
+    "audit": "prettier --config ../.prettierrc.yaml --ignore-path ../.prettierignore --check ./",
+    "format": "prettier --config ../.prettierrc.yaml --ignore-path ../.prettierignore --write ./",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

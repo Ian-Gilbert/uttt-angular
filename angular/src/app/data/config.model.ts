@@ -1,23 +1,23 @@
 export interface Config {
   api: {
     uttt: {
-      base: string,
+      base: string;
       uri: {
-        uttt: string
-      }
-    }
-  },
+        uttt: string;
+      };
+    };
+  };
   gameOptions: {
     localGame: {
-      name: string,
+      name: string;
       options: {
-        opponents: string[],
-        firstTurn: string[],
-        difficulties: string[]
-      }
-    },
+        opponents: string[];
+        firstTurn: string[];
+        difficulties: string[];
+      };
+    };
     onlineGame: {
-      name: string
-    }
-  }
+      name: string;
+    };
+  };
 }

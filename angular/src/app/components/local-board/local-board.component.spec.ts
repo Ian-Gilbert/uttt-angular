@@ -8,9 +8,8 @@ describe('LocalBoardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LocalBoardComponent ]
-    })
-    .compileComponents();
+      declarations: [LocalBoardComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

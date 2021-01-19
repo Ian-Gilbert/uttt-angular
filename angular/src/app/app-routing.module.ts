@@ -7,11 +7,11 @@ import { RulesComponent } from './components/rules/rules.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'rules', component: RulesComponent },
-  { path: 'local-game/:id', component: LocalGameComponent }
+  { path: 'local-game/:id', component: LocalGameComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

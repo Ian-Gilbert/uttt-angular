@@ -1,4 +1,4 @@
-import { TicTacToeBoard } from "../tic-tac-toe-board.model";
+import { TicTacToeBoard } from '../tic-tac-toe-board.model';
 import { MarkType } from '../mark-type.enum';
 
 export const ticTacToeBoardMock: TicTacToeBoard = {
@@ -12,5 +12,5 @@ export const ticTacToeBoardMock: TicTacToeBoard = {
     MarkType.EMPTY,
     MarkType.EMPTY,
     MarkType.EMPTY,
-  ]
+  ],
 };
