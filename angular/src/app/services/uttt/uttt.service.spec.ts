@@ -5,7 +5,7 @@ import {
   TestRequest,
 } from '@angular/common/http/testing';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { configServiceStub } from 'src/app/data/mocks/config-mock';
+import { configServiceStub } from 'src/app/data/mocks/config-stub';
 import { utttObjectMock } from 'src/app/data/mocks/uttt-object-mock';
 import { moveObjectMock } from 'src/app/data/mocks/move-mock';
 import { ConfigService } from '../config/config.service';
@@ -74,7 +74,7 @@ describe('UtttService', () => {
   it('should delete a game by its id', fakeAsync(() => {
     let req: TestRequest;
 
-    service.delete('0').subscribe();
+    service.delete('0').subscribe(() => expect(true).toBeTrue());
 
     tick();
 

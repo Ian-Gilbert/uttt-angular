@@ -1,4 +1,3 @@
-import { asyncScheduler, Observable, scheduled } from 'rxjs';
 import { Config } from '../config.model';
 
 export const configMock: Config = {
@@ -22,11 +21,5 @@ export const configMock: Config = {
     onlineGame: {
       name: 'Online Game',
     },
-  },
-};
-
-export const configServiceStub = {
-  get(): Observable<Config> {
-    return scheduled([configMock], asyncScheduler);
   },
 };

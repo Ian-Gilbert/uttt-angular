@@ -13,7 +13,7 @@ export class GlobalBoardComponent implements OnInit {
   @Input() globalBoard: GlobalBoard | null = null;
   @Input() currentPlayer: MarkType | null = null;
 
-  @Output() makeMoveEvent = new EventEmitter<LocalMove>();
+  @Output() makeMoveEvent = new EventEmitter<Move>();
 
   constructor() {}
 
