@@ -1,20 +1,29 @@
 <div class="tabs is-centered">
   <ul>
-    <li *ngFor="let tab of tabs" [ngClass]="{'is-active': selectedTab == tab}" (click)="switchTab(tab)">
-      <a>{{tab}}</a>
+    <li
+      *ngFor="let tab of tabs"
+      [ngClass]="{ 'is-active': selectedTab == tab }"
+      (click)="switchTab(tab)"
+    >
+      <a>{{ tab }}</a>
     </li>
   </ul>
 </div>
 
 <ng-container [ngSwitch]="selectedTab">
-
   <!-- Local Game Options -->
   <ng-container *ngSwitchCase="tabs[0]">
     <div class="content">
       <div class="field">
         <label class="label">Enter a local game ID</label>
         <div class="control">
-          <input class="input is-rounded" type="text" size="16" placeholder="Game ID" [(ngModel)]="gameId">
+          <input
+            class="input is-rounded"
+            type="text"
+            size="16"
+            placeholder="Game ID"
+            [(ngModel)]="gameId"
+          />
         </div>
       </div>
       <div class="field">
@@ -36,27 +45,27 @@
         <div class="select is-rounded">
           <div class="control">
             <select [(ngModel)]="selectedGameMode">
-              <option *ngFor="let mode of gameModes" [value]="mode">{{mode}}</option>
+              <option *ngFor="let mode of gameModes" [value]="mode">{{ mode }}</option>
             </select>
           </div>
         </div>
       </div>
-      <div class="field" *ngIf="selectedGameMode==gameModes[1]">
+      <div class="field" *ngIf="selectedGameMode == gameModes[1]">
         <label class="label is-bold">Who goes first</label>
         <div class="select is-rounded">
           <div class="control">
             <select [(ngModel)]="selectedFirstTurn">
-              <option *ngFor="let opponent of opponents" [value]="opponent">{{opponent}}</option>
+              <option *ngFor="let opponent of opponents" [value]="opponent">{{ opponent }}</option>
             </select>
           </div>
         </div>
       </div>
-      <div class="field" *ngIf="selectedGameMode==gameModes[1]">
+      <div class="field" *ngIf="selectedGameMode == gameModes[1]">
         <label class="label is-bold">Difficulty</label>
         <div class="select is-rounded">
           <div class="control">
             <select [(ngModel)]="selectedDifficulty">
-              <option *ngFor="let option of difficulties" [value]="option">{{option}}</option>
+              <option *ngFor="let option of difficulties" [value]="option">{{ option }}</option>
             </select>
           </div>
         </div>
@@ -77,13 +86,14 @@
       <div class="field">
         <label class="label">Enter an online game ID</label>
         <div class="control">
-          <input class="input is-rounded" placeholder="Game ID" [(ngModel)]="gameId">
+          <input class="input is-rounded" placeholder="Game ID" [(ngModel)]="gameId" />
         </div>
       </div>
       <div class="field">
         <div class="control">
           <button class="button is-link is-rounded is-fullwidth" (click)="continueOnlineGame()">
-            Continue Game</button>
+            Continue Game
+          </button>
         </div>
       </div>
     </div>

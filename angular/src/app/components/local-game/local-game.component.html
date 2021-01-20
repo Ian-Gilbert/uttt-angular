@@ -1,8 +1,11 @@
 <div class="is-widescreen">
   <div class="columns pt-6">
     <div class="column" *ngIf="gameObject">
-      <app-global-board [globalBoard]="gameObject.board" [currentPlayer]="gameObject.currentPlayer"
-        (makeMoveEvent)="makeMove($event)"></app-global-board>
+      <app-global-board
+        [globalBoard]="gameObject.board"
+        [currentPlayer]="gameObject.currentPlayer"
+        (makeMoveEvent)="makeMove($event)"
+      ></app-global-board>
     </div>
 
     <div class="column is-one-fifth">
@@ -19,7 +22,9 @@
           <div class="content">
             <div class="field">
               <div class="field">
-                <button class="button is-danger is-rounded is-fullwidth" (click)="deleteGame()">Delete Game</button>
+                <button class="button is-danger is-rounded is-fullwidth" (click)="deleteGame()">
+                  Delete Game
+                </button>
               </div>
             </div>
           </div>

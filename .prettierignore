@@ -1,8 +1,2 @@
-# html
-*.html
-
-# coverage
 coverage/
-
-# dist
 dist/
