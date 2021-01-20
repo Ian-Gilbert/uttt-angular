@@ -14,10 +14,10 @@ export class GameOptionsComponent implements OnInit {
   tabs: string[] = [];
   selectedTab = '';
 
-  opponents: string[] = [];
-  selectedOpponent = '';
+  gameModes: string[] = [];
+  selectedGameMode = '';
 
-  firstTurn: string[] = [];
+  opponents: string[] = [];
   selectedFirstTurn = '';
 
   difficulties: string[] = [];
@@ -35,11 +35,11 @@ export class GameOptionsComponent implements OnInit {
       this.tabs.push(cfg.gameOptions.onlineGame.name);
       this.selectedTab = this.tabs[0];
 
-      this.opponents = cfg.gameOptions.localGame.options.opponents;
-      this.selectedOpponent = this.opponents[0];
+      this.gameModes = cfg.gameOptions.localGame.options.gameModes;
+      this.selectedGameMode = this.gameModes[0];
 
-      this.firstTurn = cfg.gameOptions.localGame.options.firstTurn;
-      this.selectedFirstTurn = this.firstTurn[0];
+      this.opponents = cfg.gameOptions.localGame.options.opponents;
+      this.selectedFirstTurn = this.opponents[0];
 
       this.difficulties = cfg.gameOptions.localGame.options.difficulties;
       this.selectedDifficulty = this.difficulties[0];

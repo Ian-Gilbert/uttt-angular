@@ -35,23 +35,23 @@
         <label class="label is-bold">Opponent</label>
         <div class="select is-rounded">
           <div class="control">
-            <select [(ngModel)]="selectedOpponent">
-              <option *ngFor="let option of opponents" [value]="option">{{option}}</option>
+            <select [(ngModel)]="selectedGameMode">
+              <option *ngFor="let mode of gameModes" [value]="mode">{{mode}}</option>
             </select>
           </div>
         </div>
       </div>
-      <div class="field" *ngIf="selectedOpponent==opponents[1]">
+      <div class="field" *ngIf="selectedGameMode==gameModes[1]">
         <label class="label is-bold">Who goes first</label>
         <div class="select is-rounded">
           <div class="control">
             <select [(ngModel)]="selectedFirstTurn">
-              <option *ngFor="let option of firstTurn" [value]="option">{{option}}</option>
+              <option *ngFor="let opponent of opponents" [value]="opponent">{{opponent}}</option>
             </select>
           </div>
         </div>
       </div>
-      <div class="field" *ngIf="selectedOpponent==opponents[1]">
+      <div class="field" *ngIf="selectedGameMode==gameModes[1]">
         <label class="label is-bold">Difficulty</label>
         <div class="select is-rounded">
           <div class="control">

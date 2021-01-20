@@ -13,8 +13,8 @@ export const configMock: Config = {
     localGame: {
       name: 'Local Game',
       options: {
-        opponents: ['Play against a friend', 'Play against a computer'],
-        firstTurn: ['Player', 'Computer'],
+        gameModes: ['Play against a friend', 'Play against a computer'],
+        opponents: ['Player', 'Computer'],
         difficulties: ['Beginner', 'MCTS Easy', 'MCTS Medium', 'MCTS Hard'],
       },
     },

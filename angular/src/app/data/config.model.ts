@@ -11,8 +11,8 @@ export interface Config {
     localGame: {
       name: string;
       options: {
+        gameModes: string[];
         opponents: string[];
-        firstTurn: string[];
         difficulties: string[];
       };
     };
