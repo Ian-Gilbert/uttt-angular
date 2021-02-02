@@ -19,15 +19,15 @@ describe('LocalGameComponent', () => {
   let fixture: ComponentFixture<LocalGameComponent>;
 
   @Component({})
-  class HomeComponentStub { }
-  
+  class HomeComponentStub {}
+
   @Component({
-    selector: 'app-game-options'
+    selector: 'app-game-options',
   })
-  class GameOptionsComponentStub { }
-  
+  class GameOptionsComponentStub {}
+
   @Component({
-    selector: 'app-global-board'
+    selector: 'app-global-board',
   })
   class GlobalBoardComponentStub {
     @Input() globalBoard: GlobalBoard | null = null;
@@ -36,11 +36,7 @@ describe('LocalGameComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        LocalGameComponent,
-        GlobalBoardComponentStub,
-        GameOptionsComponentStub,
-      ],
+      declarations: [LocalGameComponent, GlobalBoardComponentStub, GameOptionsComponentStub],
       providers: [
         HttpClient,
         { provide: UtttService, useValue: utttServiceStub },
@@ -48,9 +44,7 @@ describe('LocalGameComponent', () => {
       ],
       imports: [
         HttpClientTestingModule,
-        RouterTestingModule.withRoutes([
-          { path: '', component: HomeComponentStub },
-        ]),
+        RouterTestingModule.withRoutes([{ path: '', component: HomeComponentStub }]),
       ],
     }).compileComponents();
   });
@@ -74,7 +68,6 @@ describe('LocalGameComponent', () => {
   }));
 
   it('should make move when makeMove() is called and gameObject is not null', fakeAsync(() => {
-
     component.gameObject = utttObjectMock;
     const move: Move = { mark: MarkType.PLAYER1, lbIndex: 0, markIndex: 0 };
 
