@@ -4,7 +4,7 @@ import { MarkType } from './mark-type.enum';
 
 export interface UtttObject {
   id: string;
-  board: GlobalBoard;
+  globalBoard: GlobalBoard;
   status: GameStatus;
   currentPlayer: MarkType;
 }
