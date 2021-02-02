@@ -1,7 +1,7 @@
 import { Observable, of } from 'rxjs';
 import { Move } from '../move.model';
 import { UtttObject } from '../uttt-object.model';
-import { utttObjectMock } from './uttt-object-mock';
+import { updatedUtttObjectMock, utttObjectMock } from './uttt-object-mock';
 
 export const utttServiceStub = {
   get(id: string): Observable<UtttObject> {
@@ -13,7 +13,7 @@ export const utttServiceStub = {
   },
 
   put(id: string, move: Move): Observable<UtttObject> {
-    return of(utttObjectMock);
+    return of(updatedUtttObjectMock);
   },
 
   delete(id: string): Observable<void> {

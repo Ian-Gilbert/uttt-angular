@@ -13,11 +13,11 @@
   /* border: 1px solid black; */
 }
 
-.xWin {
+.player1Win {
   background-color: #ccf5ff;
 }
 
-.oWin {
+.player2Win {
   background-color: #ffdbd5;
 }
 
@@ -35,21 +35,21 @@
   border: 1px solid black;
 }
 
-.xSelectable:hover {
+.player1Selectable:hover {
   cursor: pointer;
   background-color: deepskyblue;
 }
 
-.xMark {
+.player1Mark {
   background-color: #46d7ff;
 }
 
-.oSelectable:hover {
+.player2Selectable:hover {
   cursor: pointer;
   background-color: red;
 }
 
-.oMark {
+.player2Mark {
   background-color: #ff5f5c;
 }
 

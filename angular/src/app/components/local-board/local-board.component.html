@@ -3,8 +3,8 @@
   *ngIf="localBoard"
   [ngClass]="{
     focus: localBoard.focus,
-    xWin: gbMark === markType.PLAYER1,
-    oWin: gbMark === markType.PLAYER2,
+    player1Win: gbMark === markType.PLAYER1,
+    player2Win: gbMark === markType.PLAYER2,
     draw: gbMark === markType.DRAW
   }"
 >
@@ -12,12 +12,12 @@
     <div
       class="mark"
       [ngClass]="{
-        xSelectable:
+        player1Selectable:
           localBoard.focus && mark === markType.EMPTY && currentPlayer === markType.PLAYER1,
-        oSelectable:
+        player2Selectable:
           localBoard.focus && mark === markType.EMPTY && currentPlayer === markType.PLAYER2,
-        xMark: mark === markType.PLAYER1,
-        oMark: mark === markType.PLAYER2
+        player1Mark: mark === markType.PLAYER1,
+        player2Mark: mark === markType.PLAYER2
       }"
       (click)="makeMove(i)"
     ></div>
