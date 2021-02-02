@@ -9,3 +9,10 @@ export const utttObjectMock: UtttObject = {
   currentPlayer: MarkType.PLAYER1,
   board: globalBoardMock,
 };
+
+export const updatedUtttObjectMock: UtttObject = {
+  id: '0',
+  status: GameStatus.DRAW,
+  currentPlayer: MarkType.PLAYER2,
+  board: globalBoardMock
+}
