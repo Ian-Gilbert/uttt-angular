@@ -15,7 +15,7 @@
   <ng-container *ngSwitchCase="tabs[0]">
     <div class="content">
       <div class="field">
-        <label class="label">Enter a local game ID</label>
+        <label id="localGameIDLabel" class="label">Enter a local game ID</label>
         <div class="control">
           <input
             class="input is-rounded"
@@ -84,7 +84,7 @@
   <ng-container *ngSwitchCase="tabs[1]">
     <div class="content">
       <div class="field">
-        <label class="label">Enter an online game ID</label>
+        <label id="onlineGameIDLabel" class="label">Enter an online game ID</label>
         <div class="control">
           <input class="input is-rounded" placeholder="Game ID" [(ngModel)]="gameId" />
         </div>
