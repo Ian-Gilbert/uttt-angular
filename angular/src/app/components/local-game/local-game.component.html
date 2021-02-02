@@ -2,7 +2,7 @@
   <div class="columns pt-6">
     <div class="column" *ngIf="gameObject">
       <app-global-board
-        [globalBoard]="gameObject.board"
+        [globalBoard]="gameObject.globalBoard"
         [currentPlayer]="gameObject.currentPlayer"
         (makeMoveEvent)="makeMove($event)"
       ></app-global-board>
