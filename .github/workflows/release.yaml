@@ -121,7 +121,7 @@ jobs:
         run: docker image build --file .docker/angular.dockerfile --tag uttt-angular drop
       - name: docker_push
         run: |
-          docker image tag uttt-svc uttt/uttt-angular:latest
+          docker image tag uttt-angular uttt/uttt-angular:latest
           docker image push uttt/uttt-angular:latest
       - name: docker_logout
         run: docker logout
