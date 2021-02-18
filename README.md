@@ -1,5 +1,12 @@
 # Ultimate Tic Tac Toe
 
+[![build status](https://github.com/Ultimate-Tic-Tac-Toe/uttt-angular/workflows/build/badge.svg)](https://github.com/Ultimate-Tic-Tac-Toe/uttt-angular/actions?query=workflow%3Abuild)
+[![release status](https://github.com/Ultimate-Tic-Tac-Toe/uttt-angular/workflows/release/badge.svg)](https://github.com/Ultimate-Tic-Tac-Toe/uttt-angular/actions?query=workflow%3Arelease)
+[![coverage status](https://sonarcloud.io/api/project_badges/measure?project=uttt-angular&metric=coverage)](https://sonarcloud.io/dashboard?id=uttt-angular)
+[![maintainability rating](https://sonarcloud.io/api/project_badges/measure?project=uttt-angular&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=uttt-angular)
+[![reliability rating](https://sonarcloud.io/api/project_badges/measure?project=uttt-angular&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=uttt-angular)
+[![security rating](https://sonarcloud.io/api/project_badges/measure?project=uttt-angular&metric=security_rating)](https://sonarcloud.io/dashboard?id=uttt-angular)
+
 This is an Angular client for the game of Ultimate Tic Tac Toe, with both two-player and human vs bot capabilities.
 
 ## How To Play
