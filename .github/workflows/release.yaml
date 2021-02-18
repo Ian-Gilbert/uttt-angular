@@ -72,8 +72,6 @@ jobs:
     defaults:
       run:
         working-directory: ${{ env.WORKING_DIRECTORY }}
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     name: analyze_angular
     needs: [build, test]
     runs-on: ubuntu-latest
@@ -103,9 +101,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   pack:
-    defaults:
-      run:
-        working-directory: ${{ env.WORKING_DIRECTORY }}
     env:
       DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
       DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
