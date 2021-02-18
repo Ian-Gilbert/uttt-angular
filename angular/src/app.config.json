@@ -1,0 +1,23 @@
+{
+  "api": {
+    "uttt": {
+      "base": "http://localhost:5000/rest/uttt/",
+      "uri": {
+        "uttt": "uttt"
+      }
+    }
+  },
+  "gameOptions": {
+    "localGame": {
+      "name": "Local Game",
+      "options": {
+        "gameModes": ["Play with a friend", "Play against a computer"],
+        "opponents": ["Player", "Computer"],
+        "difficulties": ["Beginner", "MCTS Easy", "MCTS Medium", "MCTS Hard"]
+      }
+    },
+    "onlineGame": {
+      "name": "Online Game"
+    }
+  }
+}

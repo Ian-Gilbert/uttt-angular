@@ -1,7 +1,6 @@
 # angular
-code_coverage/
+coverage/
 dist/
-test_coverage/
 
 # nodejs
 node_modules/
