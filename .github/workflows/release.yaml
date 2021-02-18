@@ -1,0 +1,132 @@
+# test and deploy service on push to main
+
+name: release
+
+env:
+  CACHE_KEY_PREFIX: angular
+  WORKING_DIRECTORY: angular
+
+on:
+  push:
+    branches: 
+      - main
+
+jobs:
+  build:
+    defaults:
+      run:
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+    name: build_angular
+    runs-on: ubuntu-latest
+    steps:
+      - name: actions_checkout
+        uses: actions/checkout@v2
+      - name: npm_cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ hashFiles('**/package-lock.json') }}
+      - name: npm_install
+        run: npm clean-install
+      - name: npm_audit
+        run: npm run audit
+      - name: npm_lint
+        run: npm run lint
+      - name: npm_build
+        run: npm run build -- --configuration=production
+      - name: drop_upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: drop
+          path: |
+            ${{ env.WORKING_DIRECTORY }}/nginx.conf
+            ${{ env.WORKING_DIRECTORY }}/dist/angular
+
+  test:
+    defaults:
+      run:
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+    name: test_angular
+    runs-on: ubuntu-latest
+    steps:
+      - name: actions_checkout
+        uses: actions/checkout@v2
+      - name: npm_cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ hashFiles('**/package-lock.json') }}
+      - name: npm_install
+        run: npm clean-install
+      - name: npm_test
+        run: npm run test
+      # - name: npm_e2e
+      #   run: npm run e2e
+      - name: coverage_upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: ${{ env.WORKING_DIRECTORY }}/coverage
+
+  analyze:
+    defaults:
+      run:
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    name: analyze_angular
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: actions_checkout
+        uses: actions/checkout@v2
+      - name: git_fetch
+        run: git fetch --unshallow
+      - name: coverage_download
+        uses: actions/download-artifact@v2
+        with:
+          name: coverage
+          path: ${{ env.WORKING_DIRECTORY }}/coverage
+      - name: npm_cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ hashFiles('**/package-lock.json') }}
+      - name: npm_install
+        run: npm clean-install
+      - name: sonar_scan
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: ${{ env.WORKING_DIRECTORY }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  pack:
+    defaults:
+      run:
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+    env:
+      DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
+      DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+    name: pack
+    needs: [analyze]
+    runs-on: ubuntu-latest
+    steps:
+      - name: actions_checkout
+        uses: actions/checkout@v2
+      - name: drop_download
+        uses: actions/download-artifact@v2
+        with:
+          name: drop
+          path: drop
+      - name: docker_login
+        run: echo ${DOCKER_TOKEN} | docker login --username ${DOCKER_LOGIN} --password-stdin
+      - name: docker_build
+        run: docker image build --file .docker/angular.dockerfile --tag uttt-angular drop
+      - name: docker_push
+        run: |
+          docker image tag uttt-svc uttt/uttt-angular:latest
+          docker image push uttt/uttt-angular:latest
+      - name: docker_logout
+        run: docker logout

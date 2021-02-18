@@ -7,12 +7,12 @@ export const utttObjectMock: UtttObject = {
   id: '0',
   status: GameStatus.IN_PROGRESS,
   currentPlayer: MarkType.PLAYER1,
-  board: globalBoardMock,
+  globalBoard: globalBoardMock,
 };
 
 export const updatedUtttObjectMock: UtttObject = {
   id: '0',
   status: GameStatus.DRAW,
   currentPlayer: MarkType.PLAYER2,
-  board: globalBoardMock,
+  globalBoard: globalBoardMock,
 };
