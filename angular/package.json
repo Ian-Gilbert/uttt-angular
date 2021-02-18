@@ -4,7 +4,6 @@
   "scripts": {
     "audit": "prettier --config ../.prettierrc.yaml --ignore-path ../.prettierignore --check ./",
     "format": "prettier --config ../.prettierrc.yaml --ignore-path ../.prettierignore --write ./",
-    "scan": "sonar-scanner",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -54,7 +53,6 @@
     "mocha": "^8.2.1",
     "prettier": "^2.2.1",
     "protractor": "~7.0.0",
-    "sonarqube-scanner": "^2.8.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.2"
