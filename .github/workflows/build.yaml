@@ -86,4 +86,4 @@ jobs:
       - name: npm_install
         run: npm clean-install
       - name: npm_scan
-        run: npm run scan
+        run: sonar-scanner -Dsonar.login=${{ secrets.SONAR_TOKEN }}
